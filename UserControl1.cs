@@ -96,6 +96,22 @@ namespace MtankersleyDemo2UC
         {
 
             
+            if (button1.Text == remuc1 && btn1Click >0)
+            {
+                button1.Text = remuc1;
+                uc2.tb1.Text = lblTBuc1;
+                uc2.lb1.Text += lblTBuc1;
+                lbl2Strings.Add(lblTBuc1);
+                btn1Click += 1;
+                
+                
+            }
+
+
+
+            
+
+
             if (button1.Text == adduc1 && btn1Click >0)
             {
                 button1.Text = remuc1;
@@ -113,20 +129,24 @@ namespace MtankersleyDemo2UC
                 button1.Text = adduc1;
                 uc2.lb1.Text = "";
                 uc2.tb1.Text = "";
+                if (lbl1Strings.Count > 2)
+                {
                 lbl2Strings.RemoveAt(lbl2Strings.Count - 1);
+
+                }
                 btn1Click += 1;
             }
-            else if (button1.Text == adduc1 && button2.Text == remuc1)
-            {
+            //else if (button1.Text == adduc1 && button2.Text == remuc1)
+            //{
 
 
 
-                button1.Text = remuc1;
-                uc2.lb1.Text = remlbl2UC1;
-                uc2.tb1.Text = "";
-                lbl2Strings.Add(lblTBuc1);
-                btn1Click += 1;
-            }
+            //    button1.Text = remuc1;
+            //    uc2.lb1.Text = remlbl2UC1;
+            //    uc2.tb1.Text = "";
+            //    lbl2Strings.Add(lblTBuc1);
+            //    btn1Click += 1;
+            //}
 
             return;
         }
@@ -190,17 +210,18 @@ namespace MtankersleyDemo2UC
                     uc2.Location = new Point(258, 36);
                     frmMain.Controls.Add(uc2);
                 }
-            if (btn1Click == 0)
-            {
-                button1.Text = adduc1;
-                uc2.tb1.Text = lblTBuc1;
-                uc2.lb1.Text = lblTBuc1;
-                btn1Click += 1;
-            }
+                if (btn1Click == 0)
+                {
+                    button1.Text = remuc1;
+                    uc2.tb1.Text = lblTBuc1;
+                    uc2.lb1.Text = lblTBuc1;
+                
+                }
 
                
 
                 buttonEvents1();
+                btn1Click += 1;
            
 
         }
