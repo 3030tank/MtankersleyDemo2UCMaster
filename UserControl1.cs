@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Linq;
+
 
 
 namespace MtankersleyDemo2UC
@@ -108,20 +108,7 @@ namespace MtankersleyDemo2UC
         }
   
 
-        //
-        //{
-        //    frmMain.Controls.OfType<UserControl2>().ToList().ForEach(user2 => user2.Dispose());
-        //    lbl1Strings.Clear();
-        //    lbl2Strings.Clear();
-        //    WasClicked = false;
-        //    btn1Click = 0;
-        //    btn2Click = 0;
-        //    uc2 = null;
-        //}
-
-
-
-
+       
 
 
 
