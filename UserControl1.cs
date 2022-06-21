@@ -111,8 +111,8 @@ namespace MtankersleyDemo2UC
                 uc2.tb1.Text = lblTBuc1;
                 uc2.lb1.Text += lblTBuc1;
                 lbl1Strings.Add(lblTBuc1);
-                btn1Click += 1;
-                DisposeOfUC2Check();
+                
+                
 
 
             }
@@ -128,8 +128,8 @@ namespace MtankersleyDemo2UC
                 uc2.tb1.Text = lblTBuc1;
                 uc2.lb1.Text += lblTBuc1;
                 lbl1Strings.Add(lblTBuc1);
-                btn1Click += 1;
-                DisposeOfUC2Check();
+                
+                
 
 
             }
@@ -140,26 +140,26 @@ namespace MtankersleyDemo2UC
                 button1.Text = adduc1;
                 uc2.lb1.Text = "";
                 uc2.tb1.Text = "";
-                if (lbl1Strings.Count > 2)
+                if (lbl1Strings.Count > 1)
                 {
-                lbl2Strings.RemoveAt(lbl1Strings.Count - 1);
+                lbl1Strings.RemoveAt(lbl1Strings.Count - 1);
 
                 }
-                btn1Click += 1;
-                DisposeOfUC2Check();
+                
+                
             }
             
 
             return;
         }
 
-        public event EventHandler ButtonClicked;
-        protected virtual void OnButtonClicked(EventArgs e)
-        {
-            var handler = ButtonClicked;
-            if (handler != null)
-                handler(this, e);
-        }
+        //public event EventHandler ButtonClicked;
+        //protected virtual void OnButtonClicked(EventArgs e)
+        //{
+        //    var handler = ButtonClicked;
+        //    if (handler != null)
+        //        handler(this, e);
+        //}
         public void buttonEvents2()
         {
 
@@ -169,8 +169,8 @@ namespace MtankersleyDemo2UC
                 uc2.tb2.Text = lblTBuc2;
                 uc2.lb1.Text += lblTBuc2;
                 lbl2Strings.Add(lblTBuc2);
-                btn2Click += 1;
-                DisposeOfUC2Check();
+               
+                
 
 
             }
@@ -186,8 +186,8 @@ namespace MtankersleyDemo2UC
                 uc2.tb2.Text = lblTBuc2;
                 uc2.lb1.Text += lblTBuc2;
                 lbl2Strings.Add(lblTBuc2);
-                btn2Click += 1;
-                DisposeOfUC2Check();
+               
+                
 
 
             }
@@ -198,13 +198,13 @@ namespace MtankersleyDemo2UC
                 button2.Text = adduc2;
                 uc2.lb1.Text = "";
                 uc2.tb2.Text = "";
-                if (lbl2Strings.Count > 2)
+                if (lbl2Strings.Count > 1)
                 {
                     lbl2Strings.RemoveAt(lbl2Strings.Count - 1);
 
                 }
-                btn2Click += 1;
-                DisposeOfUC2Check();
+                ;
+                
             }
 
 
@@ -216,7 +216,7 @@ namespace MtankersleyDemo2UC
 
         public void button1_Click(object sender, EventArgs e)
             {
-
+                DisposeOfUC2Check();
                 if (uc2 == null)    
                 {
                     uc2 = new UserControl2();
@@ -224,6 +224,8 @@ namespace MtankersleyDemo2UC
                     uc2.Location = new Point(258, 36);
                     frmMain.Controls.Add(uc2);
                 }
+
+
             //if (btn1Click == 0)
             //{
             //    button1.Text = remuc1;
@@ -277,6 +279,9 @@ namespace MtankersleyDemo2UC
                 lbl1Strings.Clear();
                 lbl2Strings.Clear();
                 WasClicked = false;
+                btn1Click = 0;
+                btn2Click = 0;
+                uc2 = null;
 
             }
 
