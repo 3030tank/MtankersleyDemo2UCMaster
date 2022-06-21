@@ -93,12 +93,31 @@ namespace MtankersleyDemo2UC
         }
         public void DisposeOfUC2Check()
         {
+            
+
             if (button1.Text == adduc1 && button2.Text == adduc2 && btn1Click > 0 && btn2Click > 0)
             {
-                btn1Click = 0;
-                btn2Click = 0;
-                disposeOfUC();
-                
+
+                try
+                {
+
+                    for (int i = 0; i < 5; i++)
+                    {
+                        uc2.Controls.RemoveAt(i);
+                    }
+                    lbl1Strings.Clear();
+                    lbl2Strings.Clear();
+                    WasClicked = false;
+                    btn1Click = 0;
+                    btn2Click = 0;
+                    uc2 = null;
+
+                }
+                catch
+                {
+
+                }
+
             }
         }
         public void buttonEvents1()
@@ -143,7 +162,7 @@ namespace MtankersleyDemo2UC
                 if (lbl1Strings.Count > 1)
                 {
                 lbl1Strings.RemoveAt(lbl1Strings.Count - 1);
-
+                    
                 }
                 
                 
@@ -153,13 +172,7 @@ namespace MtankersleyDemo2UC
             return;
         }
 
-        //public event EventHandler ButtonClicked;
-        //protected virtual void OnButtonClicked(EventArgs e)
-        //{
-        //    var handler = ButtonClicked;
-        //    if (handler != null)
-        //        handler(this, e);
-        //}
+        
         public void buttonEvents2()
         {
 
@@ -216,26 +229,20 @@ namespace MtankersleyDemo2UC
 
         public void button1_Click(object sender, EventArgs e)
             {
-                DisposeOfUC2Check();
-                if (uc2 == null)    
+            DisposeOfUC2Check();
+            if (uc2 == null)    
                 {
                     uc2 = new UserControl2();
+                    uc2.Name = "uc2";                
                     uc2.Dock = DockStyle.None;
                     uc2.Location = new Point(258, 36);
                     frmMain.Controls.Add(uc2);
-                }
+                    
 
-
-            //if (btn1Click == 0)
-            //{
-            //    button1.Text = remuc1;
-            //    uc2.tb1.Text = lblTBuc1;
-            //    uc2.lb1.Text = lblTBuc1;
-
-            //}
+            }
 
             btn1Click += 1;
-
+                
                 buttonEvents1();
                 
            
@@ -245,24 +252,23 @@ namespace MtankersleyDemo2UC
 
         public void button2_Click(object sender, EventArgs e)
         {
+            DisposeOfUC2Check();
             if (uc2 == null)
             {
+                
                 uc2 = new UserControl2();
+                uc2.Name = "uc2";
                 uc2.Dock = DockStyle.None;
                 uc2.Location = new Point(258, 36);
                 frmMain.Controls.Add(uc2);
-            }
-            //if (btn1Click == 0)
-            //{
-            //    button1.Text = remuc1;
-            //    uc2.tb1.Text = lblTBuc1;
-            //    uc2.lb1.Text = lblTBuc1;
+                int ct = uc2.Controls.Count;
 
-            //}
+            }
+
 
             btn2Click += 1;
-
-            buttonEvents2();
+                
+                buttonEvents2();
 
 
 
@@ -274,8 +280,13 @@ namespace MtankersleyDemo2UC
 
         public void disposeOfUC()
             {
+            try
+            {
 
-                frmMain.Controls.RemoveAt(1);
+                for (int i = 0; i< 5;i++)
+                {
+                    uc2.Controls.RemoveAt(i);
+                }
                 lbl1Strings.Clear();
                 lbl2Strings.Clear();
                 WasClicked = false;
@@ -284,9 +295,12 @@ namespace MtankersleyDemo2UC
                 uc2 = null;
 
             }
+            catch
+            {
+               
+            }
 
-
-
+            }
 
         }
     }
