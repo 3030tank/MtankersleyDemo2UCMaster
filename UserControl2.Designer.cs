@@ -32,6 +32,7 @@
             this.lbl1 = new System.Windows.Forms.Label();
             this.tb2 = new System.Windows.Forms.TextBox();
             this.lb1 = new System.Windows.Forms.Label();
+            this.lb2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tb1
@@ -70,16 +71,24 @@
             // lb1
             // 
             this.lb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb1.Location = new System.Drawing.Point(110, 15);
+            this.lb1.Location = new System.Drawing.Point(101, 15);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(199, 76);
+            this.lb1.Size = new System.Drawing.Size(182, 30);
             this.lb1.TabIndex = 3;
-            this.lb1.Text = "label1";
+            // 
+            // lb2
+            // 
+            this.lb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb2.Location = new System.Drawing.Point(101, 53);
+            this.lb2.Name = "lb2";
+            this.lb2.Size = new System.Drawing.Size(182, 38);
+            this.lb2.TabIndex = 4;
             // 
             // UserControl2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lb2);
             this.Controls.Add(this.lb1);
             this.Controls.Add(this.tb2);
             this.Controls.Add(this.lbl1);
@@ -96,5 +105,6 @@
         public System.Windows.Forms.Label lbl1;
         public System.Windows.Forms.TextBox tb2;
         public System.Windows.Forms.Label lb1;
+        public System.Windows.Forms.Label lb2;
     }
 }
