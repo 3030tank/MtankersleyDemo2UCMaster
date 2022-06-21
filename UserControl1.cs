@@ -24,7 +24,7 @@ namespace MtankersleyDemo2UC
 
     {
         public int lbl1Ct = 0;
-        public int lbl2Ct = 0;   
+        public int lbl2Ct = 0;
         public int btn1Click = 0;
         public int btn2Click = 0;
         public bool WasClicked = false;
@@ -42,8 +42,9 @@ namespace MtankersleyDemo2UC
 
         public List<string> lbl1Strings = new List<string>();
         public List<string> lbl2Strings = new List<string>();
-
+        public bool disposedOfuc2 = false;
         public UserControl2 uc2 = null;
+        
 
 
 
@@ -72,7 +73,7 @@ namespace MtankersleyDemo2UC
 
         public void lable1Ct()
         {
-            if (lbl1Strings.Count >2)
+            if (lbl1Strings.Count > 2)
             {
                 lbl1Strings.RemoveAt(lbl1Strings.Count - 1);
             }
@@ -93,62 +94,59 @@ namespace MtankersleyDemo2UC
         }
         public void DisposeOfUC2Check()
         {
-            
-
             if (button1.Text == adduc1 && button2.Text == adduc2 && btn1Click > 0 && btn2Click > 0)
             {
-
-                try
+                foreach (Control c in frmMain.Controls.OfType<UserControl2>().ToList())
                 {
-
-                    for (int i = 0; i < 5; i++)
-                    {
-                        uc2.Controls.RemoveAt(i);
-                    }
-                    lbl1Strings.Clear();
-                    lbl2Strings.Clear();
-                    WasClicked = false;
-                    btn1Click = 0;
-                    btn2Click = 0;
-                    uc2 = null;
-
+                    frmMain.Controls.Remove(c);
+                    c.Dispose();
+                    disposedOfuc2 = true;
                 }
-                catch
-                {
-
-                }
-
+                
             }
+            
         }
+  
+
+        //
+        //{
+        //    frmMain.Controls.OfType<UserControl2>().ToList().ForEach(user2 => user2.Dispose());
+        //    lbl1Strings.Clear();
+        //    lbl2Strings.Clear();
+        //    WasClicked = false;
+        //    btn1Click = 0;
+        //    btn2Click = 0;
+        //    uc2 = null;
+        //}
+
+
+
+
+
+
+
         public void buttonEvents1()
         {
 
-            
-            if (button1.Text == remuc1 && btn1Click >0)
+
+            if (button1.Text == remuc1 && btn1Click > 0)
             {
                 button1.Text = remuc1;
                 uc2.tb1.Text = lblTBuc1;
                 uc2.lb1.Text += lblTBuc1;
                 lbl1Strings.Add(lblTBuc1);
-                
-                
 
 
             }
 
-
-
-            
-
-
-            if (button1.Text == adduc1 && btn1Click >0)
+            if (button1.Text == adduc1 && btn1Click > 0)
             {
                 button1.Text = remuc1;
                 uc2.tb1.Text = lblTBuc1;
                 uc2.lb1.Text += lblTBuc1;
                 lbl1Strings.Add(lblTBuc1);
-                
-                
+
+
 
 
             }
@@ -161,18 +159,18 @@ namespace MtankersleyDemo2UC
                 uc2.tb1.Text = "";
                 if (lbl1Strings.Count > 1)
                 {
-                lbl1Strings.RemoveAt(lbl1Strings.Count - 1);
-                    
+                    lbl1Strings.RemoveAt(lbl1Strings.Count - 1);
+
                 }
-                
-                
+
+
             }
-            
+
 
             return;
         }
 
-        
+
         public void buttonEvents2()
         {
 
@@ -182,14 +180,11 @@ namespace MtankersleyDemo2UC
                 uc2.tb2.Text = lblTBuc2;
                 uc2.lb1.Text += lblTBuc2;
                 lbl2Strings.Add(lblTBuc2);
-               
-                
+
+
 
 
             }
-
-
-
 
 
 
@@ -199,8 +194,8 @@ namespace MtankersleyDemo2UC
                 uc2.tb2.Text = lblTBuc2;
                 uc2.lb1.Text += lblTBuc2;
                 lbl2Strings.Add(lblTBuc2);
-               
-                
+
+
 
 
             }
@@ -217,7 +212,7 @@ namespace MtankersleyDemo2UC
 
                 }
                 ;
-                
+
             }
 
 
@@ -228,50 +223,47 @@ namespace MtankersleyDemo2UC
 
 
         public void button1_Click(object sender, EventArgs e)
+        {
+            
+            if (uc2 == null || disposedOfuc2 == true)
             {
-            DisposeOfUC2Check();
-            if (uc2 == null)    
-                {
-                    uc2 = new UserControl2();
-                    uc2.Name = "uc2";                
-                    uc2.Dock = DockStyle.None;
-                    uc2.Location = new Point(258, 36);
-                    frmMain.Controls.Add(uc2);
-                    
+                uc2 = new UserControl2();
+                uc2.Name = "uc2";
+                uc2.Dock = DockStyle.None;
+                uc2.Location = new Point(258, 36);
+                frmMain.Controls.Add(uc2);
+                disposedOfuc2 = false;
+                
 
             }
 
             btn1Click += 1;
-                
-                buttonEvents1();
-                
-           
+
+            buttonEvents1();
+            DisposeOfUC2Check();
 
         }
 
 
         public void button2_Click(object sender, EventArgs e)
         {
-            DisposeOfUC2Check();
-            if (uc2 == null)
+
+
+            if (uc2 == null || disposedOfuc2 == true)
             {
-                
                 uc2 = new UserControl2();
                 uc2.Name = "uc2";
                 uc2.Dock = DockStyle.None;
                 uc2.Location = new Point(258, 36);
                 frmMain.Controls.Add(uc2);
-                int ct = uc2.Controls.Count;
-
+                disposedOfuc2 = false;
             }
 
 
             btn2Click += 1;
-                
-                buttonEvents2();
-
-
-
+            
+            buttonEvents2();
+            DisposeOfUC2Check();
         }
 
 
@@ -279,31 +271,30 @@ namespace MtankersleyDemo2UC
 
 
         public void disposeOfUC()
-            {
-            try
-            {
+        {
 
-                for (int i = 0; i< 5;i++)
-                {
-                    uc2.Controls.RemoveAt(i);
-                }
-                lbl1Strings.Clear();
-                lbl2Strings.Clear();
-                WasClicked = false;
-                btn1Click = 0;
-                btn2Click = 0;
-                uc2 = null;
-
-            }
-            catch
+            List<UserControl2> rem2 = frmMain.Controls.OfType<UserControl2>().ToList();
+            foreach (UserControl2 rem2Item in rem2)
             {
-               
+                frmMain.Controls.Remove(rem2Item);
+                rem2Item.Dispose();
             }
+            lbl1Strings.Clear();
+            lbl2Strings.Clear();
+            WasClicked = false;
+            btn1Click = 0;
+            btn2Click = 0;
+            uc2 = null;
 
-            }
+
+
 
         }
     }
+}
+    
+
+    
 
 
            

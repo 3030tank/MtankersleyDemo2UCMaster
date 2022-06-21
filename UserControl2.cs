@@ -15,9 +15,9 @@ namespace MtankersleyDemo2UC
         public UserControl2()
         {
             InitializeComponent();
-            //
+            
         }
 
-        
+      
     }
 }

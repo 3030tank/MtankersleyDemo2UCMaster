@@ -69,10 +69,10 @@
             // 
             // lb1
             // 
-            this.lb1.AutoSize = true;
-            this.lb1.Location = new System.Drawing.Point(176, 49);
+            this.lb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1.Location = new System.Drawing.Point(110, 15);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(35, 13);
+            this.lb1.Size = new System.Drawing.Size(199, 76);
             this.lb1.TabIndex = 3;
             this.lb1.Text = "label1";
             // 
